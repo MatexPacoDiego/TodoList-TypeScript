@@ -10,8 +10,12 @@ export default function Todo() {
   const [input, setInput] = useState<string>("");
 
   function handleAdd(): void {
-    setTasks((t) => [...t, input]);
-    setInput("");
+    if (input.length != 0) {
+      setTasks((t) => [...t, input]);
+      setInput("");
+    } else {
+      alert("Nie podano wartości");
+    }
   }
 
   function handleClickUpper(index: number): void {
